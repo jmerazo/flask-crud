@@ -1,0 +1,30 @@
+{% extends 'layouts/home.html' %} {% block tittle %} Users {% endblock %} {% block contents %}
+<h1>Users List</h1>
+
+<a href="{{ url_for('listUsers') }}">List register</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Lastname</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Password</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user[0] }}</td>
+            <td>{{ user[1] }}</td>
+            <td>{{ user[2] }}</td>
+            <td>{{ user[3] }}</td>
+            <td>{{ user[4] }}</td>
+            <td>{{ user[5] }}</td>
+        </tr>
+        {%endfor%}
+    </tbody>
+</table>
+
+{% endblock %}

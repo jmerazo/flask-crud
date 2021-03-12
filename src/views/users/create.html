@@ -1,0 +1,22 @@
+{% extends 'layouts/home.html' %} 
+{% block tittle %} Users Register {% endblock %}
+
+{% block contents %}
+<h1>Users Register</h1>
+<a href="{{ url_for('createUser') }}">Back</a>
+
+<form action="{{ url_for('createUser') }}" method="POST">
+    <input type="text" name="name" placeholder="name">
+    <input type="text" name="lastname" placeholder="lastname">
+    <input type="text" name="phone" placeholder="phone">
+    <input type="text" name="email" placeholder="email">
+    <input type="text" name="password" placeholder="password">
+    <br>
+    <br>
+    <br>
+    <button type="submit" class="btn btn-primary">
+        Save
+    </button>
+</form>
+
+{% endblock%}

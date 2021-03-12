@@ -1,0 +1,6 @@
+{% extends 'layouts/home.html' %} {% block tittle %} Home {% endblock %} {% block contents %}
+<h1>Users</h1>
+
+<a href="{{ url_for('listUsers') }}" type="submit" class="btn btn-primary">List</a>
+<a href="{{ url_for('createUser') }}" type="submit" class="btn btn-primary">Create</a>
+{% endblock %}
