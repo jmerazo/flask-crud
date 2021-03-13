@@ -1,26 +1,15 @@
-from flask import render_template, request, redirect, url_for
-from src import app
 from src.models.user import UsersModel
+from src.dto.user import UserDTO
 
-@app.route('/users')
-def listUsers():
-    usersModel = UsersModel()
-    data =  usersModel.lists()
-    return render_template('users/index.html', users=data)
+class UserController():
+    def list(self):
+        usersModel = UsersModel()
+        data = usersModel.lists()
 
-@app.route('/users/create', methods =['GET','POST'])
-def createUser():
-    if request.method == 'GET':
-        return render_template('users/create.html')
-    name = request.form.get('name')
-    lastname = request.form.get('lastname')
-    phone = request.form.get('phone')
-    email = request.form.get('email')
-    password = request.form.get('password')
+        return data
 
-    usersModel = UsersModel()
-    usersModel.create(name,lastname,phone,email,password)
+    def create(self, user: UserDTO):
+        usersModel = UsersModel()
+        usersModel.create(user) 
 
-    return redirect(url_for('users'))
-
-
+        #Enviamos un correo
