@@ -35,7 +35,7 @@ class UsersModel():
     def update(name, lastname,phone,email,password,id):
         cursor = mysql.get_db().cursor()
         #cursor = mysql.cursor()
-        cursor.execute('update register set name = ?,lastname = ?,phone = ?,email = ?,password = ? WHERE id = ?', (name, lastname,phone,email,password,id,))
+        cursor.execute('update register set name = %s,lastname = %s,phone = %s,email = %s,password = %s WHERE id = %s', (name, lastname,phone,email,password,id,))
         mysql.get_db().commit()
         cursor.close()
             
